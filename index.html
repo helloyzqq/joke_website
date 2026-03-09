@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>办公室段子生成器</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>办公室段子生成器</h1>
+      <p class="subtitle">压力大？来乐一乐！</p>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <div class="input-group">
+          <input type="text" id="topic" placeholder="输入一个话题..." />
+          <select id="style">
+            <option value="轻松搞笑">轻松搞笑</option>
+            <option value="职场讽刺">职场讽刺</option>
+            <option value="吐槽向">吐槽向</option>
+          </select>
+        </div>
+        <button id="generateBtn">生成段子</button>
+      </section>
+
+      <section class="jokes-section" id="jokesContainer">
+        <!-- 段子将在这里显示 -->
+      </section>
+
+      <div id="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>段子生成中...</p>
+      </div>
+
+      <div id="toast"></div>
+
+      <section class="favorites-section">
+        <h2>我的收藏</h2>
+        <div id="favoritesContainer"></div>
+      </section>
+    </main>
+  </div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('generateBtn').addEventListener('click', function() {
+      const topic = document.getElementById('topic').value.trim();
+      const style = document.getElementById('style').value;
+      if (!topic) {
+        alert('请输入一个话题~');
+        return;
+      }
+      generateJokes(topic, style);
+    });
+  </script>
+</body>
+</html>

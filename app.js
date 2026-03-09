@@ -37,7 +37,7 @@ function renderFavorites() {
 
   container.innerHTML = favorites.map((joke, index) => `
     <div class="favorite-item">
-      <p class="joke-text">${joke.content}</p>
+      <p class="joke-content">${joke.content}</p>
       <div class="joke-actions">
         <button class="btn-copy" onclick="copyJoke('${escapeHtml(joke.content)}')">复制</button>
         <button class="btn-delete" onclick="deleteFavorite(${index})">删除</button>
